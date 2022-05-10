@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 
 	"github.com/gorilla/mux"
 )
@@ -27,5 +28,6 @@ func main() {
 	mux.HandleFunc("/movies", DeleteMovie()).Methods("DELETE")
 
 	fmt.Printf("Listening at Port 8083...")
+	http.ListenAndServe(":8083", mux)
 
 }
